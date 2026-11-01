@@ -63,4 +63,3 @@ Built with Swift and SwiftUI. Motion and heart-rate features depend on the watch
 Made by [Shuqi Wang](https://www.shuqihere.top/). Read the [project story](https://www.shuqihere.top/archive/projects/enchant), or [open an issue](https://github.com/howtoexitvim/Enchant/issues) to share feedback.
 
 © 2026 Shuqi Wang. All rights reserved. Public visibility of this showcase does not grant a license to the application or its media.
-
