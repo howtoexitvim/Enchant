@@ -1,0 +1,305 @@
+</style></head><body><main>
+<header>
+  <img src="images/app-icon.png" alt="附魔剑 Logo" data-i18n-alt="附魔剑 Logo">
+  <div><div class="eyebrow">PRIVATE JOURNAL · WATCH + IPHONE</div><h1>ENCHANT</h1><p data-i18n="把每一个时刻，收进你的魔法手账。">把每一个时刻，收进你的魔法手账。</p></div>
+  <div class="preview-tools">
+    <span class="pill" data-i18n="离线交互预览 · 演示数据">离线交互预览 · 演示数据</span>
+    <div class="language-switch" role="group" aria-label="界面语言">
+      <button data-action="language:zh-Hans" lang="zh-Hans">中文</button>
+      <button data-action="language:en" lang="en">EN</button>
+    </div>
+  </div>
+</header>
+<div class="studio">
+  <aside>
+    <div class="eyebrow" data-i18n="体验所有场景">体验所有场景</div>
+    <h2 data-i18n="从开始，到收藏">从开始，到收藏</h2>
+    <p data-i18n="沿用附魔主题、像素字体和原有插画。点击设备内的按钮，体验完整操作。">沿用附魔主题、像素字体和原有插画。点击设备内的按钮，体验完整操作。</p>
+    <nav id="scenarios"></nav>
+    <div class="aside-note"><span data-i18n="所有预览数据只在此浏览器保存。">所有预览数据只在此浏览器保存。</span><br><span data-i18n="原生应用使用真实设备数据。">原生应用使用真实设备数据。</span></div>
+    <button class="ghost" id="reset" data-i18n="重置演示记录">重置演示记录</button>
+  </aside>
+  <section class="devices">
+    <div class="device-column">
+      <div class="device-label">APPLE WATCH <span data-i18n="记录与反馈">记录与反馈</span></div>
+      <div class="watch-size-control"><button data-action="watchSize:small">40mm · 162×197</button><button data-action="watchSize:large" class="selected">46mm · 208×248</button></div>
+      <div class="watch-shell"><div class="watch-screen" id="watch"></div></div>
+      <p class="device-caption" data-i18n="快速开始 · 暂停 · 中断恢复 · 先存本机">快速开始 · 暂停 · 中断恢复 · 先存本机</p>
+    </div>
+    <div class="device-column">
+      <div class="device-label">IPHONE <span data-i18n="收藏与回顾">收藏与回顾</span></div>
+      <div class="phone-shell"><div class="island"></div><div class="phone-status">9:41 <span>▮▮▮ ▰</span></div><div class="phone-screen" id="phone"></div><div class="phone-nav" id="phoneNav"></div><div class="home-indicator"></div></div>
+      <p class="device-caption" data-i18n="月 / 年日历 · 详情 · 备注">月 / 年日历 · 详情 · 备注</p>
+    </div>
+  </section>
+</div>
+<footer data-i18n="Enchant · 2026-10-08 · 预览数值为演示 · 实际权限由 Apple 系统提供">Enchant · 2026-10-08 · 预览数值为演示 · 实际权限由 Apple 系统提供</footer>
+</main><div class="toast" id="toast" role="status"></div><script>
+'use strict';
+const icons = __ICONS__;
+const copyCatalog = __COPY__;
+let locale = (() => {
+  try {
+    const preference = localStorage.getItem('enchant.preview.locale');
+    if (preference==='zh-Hans'||preference==='en') return preference;
+  } catch {}
+  for (const language of navigator.languages?.length ? navigator.languages : [navigator.language]) {
+    if (/^zh(?:-|$)/i.test(language)) return 'zh-Hans';
+    if (/^en(?:-|$)/i.test(language)) return 'en';
+  }
+  return 'en';
+})();
+let isChinese = locale === 'zh-Hans';
+function t(key, ...args) {
+  const value = copyCatalog[key]?.[locale] ?? copyCatalog[key]?.en ?? key;
+  let index = 0;
+  return value.replace(/%@|%l?ld|%d/g, () => String(args[index++] ?? ''));
+}
+function localizeStaticUI() {
+  document.documentElement.lang = locale;
+  document.title = 'Enchant · ' + t('魔法手账');
+  document.querySelectorAll('[data-i18n]').forEach(element => element.textContent = t(element.dataset.i18n));
+  document.querySelectorAll('[data-i18n-alt]').forEach(element => element.alt = t(element.dataset.i18nAlt));
+  document.querySelector('.language-switch').setAttribute('aria-label',t('界面语言'));
+  document.querySelectorAll('.language-switch button').forEach(button => {
+    const language=button.dataset.action.split(':')[1];
+    button.setAttribute('aria-pressed',String(locale===language));
+    button.setAttribute('aria-label',t(language==='zh-Hans' ? '切换到中文' : '切换到英文'));
+  });
+}
+const settingsIcon = icons.settings;
+const $ = id => document.getElementById(id);
+const esc = value => String(value).replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
+const asset=name=> `<img class="art" src="images/${name}.png" alt="">`;
+const dayKey = date => `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
+const dateFromKey = key => new Date(key + 'T12:00:00');
+const formatDay = key => new Intl.DateTimeFormat(locale, {year:'numeric', month:'short', day:'numeric'}).format(dateFromKey(key));
+const formatTime = record => new Intl.DateTimeFormat(locale, {hour:'numeric', minute:'2-digit'}).format(new Date(record.day+'T'+record.time+':00'));
+const monthLabel = (value, short = false) => new Intl.DateTimeFormat(locale, {month:short ? 'short' : 'long', ...(short ? {} : {year:'numeric'})}).format(new Date(year,value,1));
+const today = new Date(2026,9,8), STORAGE = 'enchant.design.v1';
+let db;
+try { db = JSON.parse(localStorage.getItem(STORAGE)); } catch {}
+const fixtures = () => [0,0,2,4,6,8,12,18].map((offset,index) => {
+  const date = new Date(today); date.setDate(date.getDate()-offset);
+  return {id:'demo-'+index, day:dayKey(date), time:index%2 ? '22:08' : '20:32', seconds:208+index*16, cycles:126+index*12, note:index===0 ? t('把安静留给自己。') : '', links:[], origin:index%3===0 ? '自动' : '手动', deleted:false};
+});
+if (!Array.isArray(db)) db = fixtures();
+let detailPage = 'summary', watchSlide = 'main';
+let watchQuery = '', phonePage = 'home', watchPage = 'home', scenario = 'normal', selected = dayKey(today), month = 9, year = 2026, yearView = false, recordID = db[0]?.id, query = '', session = null;
+let prefs = {sound:true, haptics:true, autoSave:true, health:true, automatic:false, autoStop:false}, editBase = null;
+function persist() { try { localStorage.setItem(STORAGE,JSON.stringify(db)); } catch { toast(t('浏览器保存不可用，本次仍可体验界面。')); } }
+function toast(value) { $('toast').textContent=value; $('toast').classList.add('show'); clearTimeout(toast.timer); toast.timer=setTimeout(()=>$('toast').classList.remove('show'),2500); }
+const duration = seconds => `${String(Math.floor(seconds/60)).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`;
+const visible = () => db.filter(record=>!record.deleted), current = () => db.find(record=>record.id===recordID);
+const button = (label,action,kind='primary') => `<button class="${kind}" data-action="${action}">${label}</button>`;
+const scenarios = [['normal','默认体验'],['active','正在记录'],['pause','暂停记录'],['idle','静止提示'],['result','结束战况'],['calendar','月 / 年手账'],['detail','记录详情'],['edit','备注'],['empty','空手账'],['permission','权限与无样本'],['interrupted','中断恢复'],['offline','等待配对设备'],['failure','保存失败'],['trash','删除与恢复']];
+function localizePreviewUI() {
+  localizeStaticUI();
+  $('scenarios').innerHTML = scenarios.map(([key,label])=>button(t(label),'scenario:'+key,'scenario')).join('');
+}
+localizePreviewUI();
+let languagePointerFocus=null;
+function setPreviewLanguage(language) {
+  if (!['zh-Hans','en'].includes(language)||language===locale) return;
+  const fields=[...document.querySelectorAll('#phone input:not([type="checkbox"]),#phone textarea,#watch input,#watch textarea')].map(field => ({
+    selector:field.id ? '#'+field.id : '#phone [name="'+field.name+'"]',
+    value:field.value,focused:field===document.activeElement||field===languagePointerFocus,
+    selectionStart:field.selectionStart,selectionEnd:field.selectionEnd,
+    scrollTop:field.scrollTop,scrollLeft:field.scrollLeft,
+  }));
+  const scrolls=['#searchResults','.watch-records','.note-body','.watch-note-text'].map(selector=>({selector,top:document.querySelector(selector)?.scrollTop||0}));
+  if ($('search')) query=$('search').value;
+  if ($('watchSearch')) watchQuery=$('watchSearch').value;
+  locale=language;isChinese=locale==='zh-Hans';
+  try { localStorage.setItem('enchant.preview.locale',locale); } catch {}
+  localizePreviewUI();render();
+  for (const field of fields) {
+    const element=document.querySelector(field.selector);if (!element) continue;
+    element.value=field.value;
+    if (field.focused) element.focus({preventScroll:true});
+    if (field.selectionStart!==null) try { element.setSelectionRange(field.selectionStart,field.selectionEnd); } catch {}
+    element.scrollTop=field.scrollTop;element.scrollLeft=field.scrollLeft;
+  }
+  for (const scroll of scrolls) { const element=document.querySelector(scroll.selector);if (element) element.scrollTop=scroll.top; }
+  languagePointerFocus=null;
+}
+function selectScenario(key) {
+  scenario=key; watchPage='home'; phonePage='home'; session=null; query=''; watchSlide='main'; detailPage='summary';
+  if (['active','pause','idle','interrupted'].includes(key)) { session={seconds:128, phase:key==='pause' ? 'paused' : key==='interrupted' ? 'interrupted' : 'recording', cycles:126}; watchPage='session'; phonePage='session'; }
+  if (key==='result'||key==='failure') { watchPage='result'; phonePage='result'; }
+  if (key==='calendar'||key==='empty') { phonePage='journal'; watchPage='journal'; }
+  if (key==='detail'||key==='permission') { phonePage='detail'; watchPage='detail'; }
+  if (key==='edit') { editBase=current()||fixtures()[0]; phonePage='editor'; watchPage='note'; }
+  if (key==='trash') { phonePage='trash'; watchPage='trash'; }
+  render();
+}
+function header(title,back) { return `<div class="screen-header">${back ? `<button class="back" data-action="page:${back}" aria-label="${t('返回')}">‹</button>` : ''}<h3>${t(title)}</h3><span class="spark">${icons.spark}</span></div>`; }
+function recordSummary(record) { return t('%@记录 · %@',t(record.origin),formatDay(record.day)); }
+function row(record) { return `<button class="record-row" data-action="record:${esc(record.id)}"><img class="record-icon" src="${imageAssets['magic-journal']}" alt=""><span><strong>${esc(formatTime(record))}</strong><small>${esc(record.note||recordSummary(record))}</small></span><b>${duration(record.seconds)}</b><span>›</span></button>`; }
+function metrics(seconds=208,cycles=126) { return `<div class="metrics"><div><b>${duration(seconds)}</b><small>${t('活动时长')}</small></div><div><b>${cycles}</b><small>${t('次数 · 估算')}</small></div></div>`; }
+function hasHearts() { return scenario!=='permission' && ((phonePage==='session'||watchPage==='session') ? session?.heartAvailable!==false : current()?.heartAvailable!==false); }
+function healthChart() {
+  if (!hasHearts()) return `<div class="panel"><strong>${t('心率未获取')}</strong><p>${t('未获读取权限或此时间段没有有效样本。')}</p></div>`;
+  return `<div class="panel"><div class="split"><strong>${t('本次心率')}</strong><span class="magic">98 bpm</span></div><svg class="chart" viewBox="0 0 300 100" role="img" aria-label="${t('本次心率曲线，暂停区间断开')}"><path d="M0 75 L18 68 L36 73 L54 44 L72 49 L90 38 L108 45 M155 51 L175 40 L195 46 L215 29 L235 42 L260 24 L290 39" fill="none" stroke="#ae78f6" stroke-width="3"/><path d="M0 95 H300" stroke="#594568"/></svg><small>${t('%ld 个样本 · 暂停与采样空缺断开',20)}</small></div>`;
+}
+function phone() {
+  let html=''; const records=scenario==='empty' ? [] : visible();
+  switch (phonePage) {
+    case 'home':
+      html=header('附魔')+`<div class="wordmark">ENCHANT</div><p class="lead">${t('只属于你的附魔时刻。')}</p><div class="hero-card">${asset('plain-sword')}<p>${t('从一个时刻开始，写下你的私人手账。')}</p><div class="hero-actions">${button(t('附魔开始'),'start')}<div class="metrics"><div><b>${records.length}</b><small>${t('本月记录')}</small></div><div><b>32:18</b><small>${t('本月活动时长')}</small></div></div></div></div><button class="book-card" data-action="page:journal"><span class="book-card-content">${asset('magic-journal')}<span><strong>${t('魔法手账')}</strong><small>${t('每一个开始，都值得收藏。')}</small></span></span><span class="book-card-arrow" aria-hidden="true">›</span></button>${records.length ? `<h4>${t('最近一次')}</h4>${row(records[0])}` : ''}<p class="sync">${t(scenario==='offline' ? '本机已保存 · 等待配对设备连接' : '记录保存在本机 · 配对后自动同步')}</p>`;
+      break;
+    case 'session':
+      html=header('本次记录')+`<div class="session-content"><div class="state">${t(session?.phase==='interrupted' ? '中断记录' : session?.phase==='paused' ? '已暂停' : '正在附魔')}</div><div class="timer" id="phoneTimer">${duration(session?.seconds||0)}</div><p>${t('活动时长 · 手动开始')}</p><div class="panel"><div class="metrics"><div><b>${scenario==='permission'||session?.heartAvailable===false ? '--' : '98'}</b><small>${t('最新心率')}</small></div><div><b>${session?.cycles||0}</b><small>${t('次数 · 估算')}</small></div></div><small>${t('动作采集中')}</small></div>${scenario==='interrupted' ? `<p>${t('检查点已保留，停机时间不会计入活动时长。')}</p>` : ''}${scenario==='idle' ? `<div class="panel warning">${t('静止，10 秒后提示结束')}${button(t('继续记录'),'continueIdle','secondary')}</div>` : ''}${button(t(session?.phase==='recording' ? '暂停' : '继续'),'pause','secondary')}${button(t('结束'),'finish')}${button(t('丢弃记录'),'discard','danger')}</div>`;
+      break;
+    case 'result':
+      html=header('本次战况')+`<div class="result-content">${asset('enchanted-sword')}<h2 class="gold">${t('附魔完成')}</h2><div class="timer">${duration(session?.seconds??208)}</div><p>${t('活动时长')}</p><div class="metrics"><div><b>${session?.heartAvailable===false ? '--' : '98'}</b><small>${t('平均心率 · bpm')}</small></div><div><b>${session?.cycles??126}</b><small>${t('次数 · 估算')}</small></div></div>${scenario==='failure' ? `<div class="panel warning">${t('保存未完成 · 结果已保留。')}</div>` : ''}${['failure','pending'].includes(scenario) ? button(t(scenario==='failure' ? '重试保存' : '保存记录'),'retry') : button(t('备注'),'editResult','secondary')}${button(t('完成'),'done')}</div>`;
+      break;
+    case 'journal':
+      html=header('魔法手账')+`<div class="split calendar-mode">${button(t('月'),'monthMode',!yearView ? 'chip active' : 'chip')}${button(t('年'),'yearMode',yearView ? 'chip active' : 'chip')}<span class="grow"></span>${button(t('今天'),'today','chip')}</div><div class="calendar panel"><div class="split"><button class="back" data-action="previous" aria-label="${t(yearView ? '上一年' : '上个月')}">‹</button><strong>${yearView ? new Intl.DateTimeFormat(locale,{year:'numeric'}).format(new Date(year,month,1)) : monthLabel(month)}</strong><button class="back" data-action="next" aria-label="${t(yearView ? '下一年' : '下个月')}">›</button></div>${yearView ? yearCalendar(records) : monthCalendar(records)}</div><label class="search"><span>⌕</span><input id="search" type="search" placeholder="${t('搜索日期或备注')}" value="${esc(query)}" aria-label="${t('搜索记录')}">${button(t('取消'),'cancelSearch','ghost')}</label><div class="split"><h4>${query ? t('搜索结果') : formatDay(selected)}</h4></div><div id="searchResults">${recordResults(records)}</div>`;
+      break;
+    case 'detail': {
+      const record=current()||fixtures()[0];
+      const tabs=`<div class="detail-tabs">${[['summary','战况'],['note','手账']].map(([id,title])=>button(t(title),'detailPage:'+id,'chip '+(detailPage===id ? 'active' : ''))).join('')}</div>`;
+      html=header('记录详情','journal')+tabs;
+      if (detailPage==='summary') html+=`<div class="split"><h2>${t('%@记录',t(record.origin))}</h2><small>${formatDay(record.day)}</small></div><div class="panel"><p>${formatDay(record.day)} ${formatTime(record)}</p><small>${t('时区：Asia/Hong_Kong')}</small>${metrics(record.seconds,record.cycles)}</div>${healthChart()}<div class="detail-spacer"></div>${button(t('编辑备注'),'edit','secondary')}`;
+      if (detailPage==='note') html+=`<div class="note-title">${asset('magic-journal')}<h2>${t('备注')}</h2></div><div class="note-body"><p>${noteHTML(record.note||t('还没有备注'))}</p></div>${button(t('编辑备注'),'edit','secondary')}${button(t('删除记录'),'delete','danger')}`;
+      break;
+    }
+    case 'editor': {
+      const record=editBase||current(); let draft;
+      try { draft=JSON.parse(localStorage.getItem(STORAGE+'.draft.'+record.id)); } catch {}
+      html=header('编辑备注','detail')+`<form id="editor"><div class="note-title">${asset('magic-journal')}<span>${formatDay(record.day)}</span></div><textarea name="note" maxlength="20000" placeholder="${t('写下备注…')}">${esc(draft?.note??record.note??'')}</textarea><p class="form-error" id="formError"></p><button type="submit" class="primary">${t('保存备注')}</button></form>`;
+      break;
+    }
+    case 'settings':
+      html=header('偏好设置')+`<div class="flat-preferences">${toggle(icons.play+t('自动开始'),'automatic')}${toggle(icons.pause+t('静止提醒'),'autoStop')}${toggle(icons.heart+t('记录心率'),'health')}${toggle(icons.sound+t('声音'),'sound')}${toggle(icons.haptics+t('触感'),'haptics')}${button(icons.trash+t('回收站'),'page:trash','secondary')}</div><p class="settings-note">${t('自动开始需保持 Watch 前台；心率只显示有效样本。')}</p><p class="sync">${t('本机保存 · 配对后同步')}</p>`;
+      break;
+    case 'trash': {
+      const deleted=db.filter(record=>record.deleted);
+      html=header('回收站','settings')+(deleted.length ? deleted.map(record=>`<div class="panel"><strong>${formatDay(record.day)} · ${duration(record.seconds)}</strong><p>${esc(record.note||t('%@记录',t(record.origin)))}</p>${button(t('恢复'),'restore:'+record.id,'secondary')}</div>`).join('') : `<div class="empty"><span class="object-art">${icons.trash}</span><h2>${t('回收站为空')}</h2><p>${t('已删除记录可恢复')}</p></div>`);
+      break;
+    }
+  }
+  $('phone').innerHTML=html;
+  $('phone').className='phone-screen screen-'+phonePage+(query ? ' searching' : '');
+  $('phoneNav').innerHTML=['home','journal','settings'].map((page,index)=>`<button data-action="page:${page}" class="${phonePage===page ? 'selected' : ''}"><span>${['<img class="tab-sword" src="'+imageAssets['sword-tab']+'" alt="">','<img class="tab-book" src="'+imageAssets['journal-tab']+'" alt="">',settingsIcon][index]}</span>${t(['附魔','手账','设置'][index])}</button>`).join('');
+  $('phoneNav').hidden=['session','result','editor'].includes(phonePage);
+  bindForm();
+}
+function monthCalendar(records) {
+  const first=new Date(year,month,1), offset=(first.getDay()+6)%7, days=new Date(year,month+1,0).getDate();
+  const weekdays=Array.from({length:7},(_,index)=>new Intl.DateTimeFormat(locale,{weekday:isChinese ? 'narrow' : 'short'}).format(new Date(2026,9,5+index)));
+  return `<div class="calendar-grid">${weekdays.map(day=>`<span class="weekday">${day}</span>`).join('')}${Array.from({length:Math.ceil((offset+days)/7)*7},(_,index)=>{
+    const day=index-offset+1;
+    if (day<1||day>days) return '<span></span>';
+    const key=dayKey(new Date(year,month,day)), count=records.filter(record=>record.day===key).length;
+    return `<button data-action="day:${key}" aria-label="${t('%@，%ld 条记录',formatDay(key),count)}" class="${count ? 'has-record' : ''} ${selected===key ? 'selected-day' : ''} ${key===dayKey(today) ? 'today' : ''}"><span>${day}</span><small>${count ? t('%ld次',count) : ' '}</small></button>`;
+  }).join('')}</div>`;
+}
+function yearCalendar(records) { return `<div class="year-grid">${Array.from({length:12},(_,value)=>{
+  const prefix=`${year}-${String(value+1).padStart(2,'0')}`, count=records.filter(record=>record.day.startsWith(prefix)).length;
+  return `<button data-action="month:${value}"><strong>${monthLabel(value,true)}</strong><small>${t('%ld 次',count)}</small></button>`;
+}).join('')}</div>`; }
+function matches(record,search) { return (record.day+' '+formatDay(record.day)+' '+record.note+' '+(record.links||[]).map(link=>link.url+' '+link.title).join(' ')).toLowerCase().includes(search.toLowerCase()); }
+function recordResults(records) {
+  const list=query ? records.filter(record=>matches(record,query)) : records.filter(record=>record.day===selected);
+  return list.length ? list.map(row).join('') : `<div class="empty">${asset('magic-journal')}<h2>${t(query ? '没有匹配记录' : '这页还空着')}</h2><p>${t('开始一次附魔，就会收藏在这里。')}</p></div>`;
+}
+function toggle(label,key) { return `<label class="toggle"><span>${label}</span><input type="checkbox" data-pref="${key}" ${prefs[key] ? 'checked' : ''}></label>`; }
+function watch() {
+  let html=''; const more=watchSlide==='more';
+  const book=`<img class="book-icon" src="${imageAssets['magic-journal']}" alt="${t('魔法书')}">`;
+  const top=label=>`<div class="watch-time ${label&&!/^\d/.test(label) ? 'watch-title' : ''}">${label||'9:41'}</div>`;
+  const back=(label='返回',action='watchHome')=>button(t(label),action,'watch-back');
+  const dots=(pages=[['main','记录'],['more','心率']])=>`<div class="watch-pager">${pages.map(([id,label])=>`<button class="page-dot ${watchSlide===id ? 'active' : ''}" aria-label="${t(label)}" data-action="watchSlide:${id}"><i></i></button>`).join('')}</div>`;
+  const heart=()=>`<div class="watch-metrics"><span>${!hasHearts() ? '--' : '98'}<small>${t('平均 bpm')}</small></span><span>${!hasHearts() ? '--' : '112'}<small>${t('峰值 bpm')}</small></span></div>`;
+  if (watchPage==='home') html=top()+`<div class="watch-main watch-home-body">${asset('plain-sword')}${button(t('附魔开始'),'start')}<div class="watch-shortcuts">${button(book+t('手账'),'watchJournal','ghost')}${button(settingsIcon+t('设置'),'watchSettings','ghost')}</div></div>`;
+  if (watchPage==='session') html=top()+`<div class="watch-main watch-session-body">${!more ? `<div class="state">${t(scenario==='idle' ? '10秒后结束' : session?.phase==='recording' ? '正在附魔' : session?.phase==='paused' ? '已暂停' : '中断记录')}</div><div class="timer" id="watchTimer">${duration(session?.seconds||0)}</div><div class="watch-metrics"><span>${scenario==='permission'||session?.heartAvailable===false ? '--' : '98'}<small>${icons.heart}${t('心率 bpm')}</small></span><span>${session?.cycles||0}<small>${t('次数 · 估算')}</small></span></div><div class="watch-controls">${button(t(scenario==='idle' ? '继续' : session?.phase==='recording' ? '暂停' : '继续'),scenario==='idle' ? 'continueIdle' : 'pause','secondary')}${button(t('结束'),'finish')}</div>` : `<div class="watch-mini-chart">${healthChart()}</div>${heart()}${button(t('丢弃记录'),'discard','danger')}`}</div>${dots()}`;
+  if (watchPage==='result') html=top()+`<div class="watch-main watch-result-body">${asset('enchanted-sword')}<h2 class="gold">${t('附魔完成')}</h2><div class="timer">${duration(session?.seconds??208)}</div><div class="watch-result-metric">${t('%@ bpm · %ld次估算',session?.heartAvailable===false||scenario==='permission' ? '--' : '98',session?.cycles??126)}</div>${scenario==='failure' ? button(t('重试保存'),'retry') : `<div class="watch-controls">${button(t('备注'),'editResult','secondary')}${button(t('完成'),'done')}</div>`}</div>`;
+  if (watchPage==='journal') html=`<div class="watch-list-head">${book}<h2>${t('魔法手账')}</h2></div><input id="watchSearch" aria-label="${t('搜索日期或备注')}" placeholder="${t('搜索日期或备注')}" value="${esc(watchQuery)}"><div class="watch-records">${(scenario==='empty' ? [] : visible()).filter(record=>!watchQuery||matches(record,watchQuery)).map(record=>`<button class="watch-record" data-action="watchRecord:${record.id}"><span>${formatDay(record.day)}<small>${esc(record.note||t('%@记录',t(record.origin)))}</small></span><b>${duration(record.seconds)}</b></button>`).join('')||`<div class="watch-empty">${asset('magic-journal')}<p>${t('这页还空着')}</p></div>`}</div>${back()}`;
+  if (watchPage==='detail') {
+    const record=current()||fixtures()[0];
+    html=top(formatDay(record.day))+`<div class="watch-main watch-detail-body">${watchSlide==='main' ? `<div class="timer">${duration(record.seconds)}</div>${heart()}<small>${t('%ld次估算 · %@',record.cycles,t(record.origin))}</small>` : watchSlide==='more' ? `<div class="watch-mini-chart">${healthChart()}</div><small>${t('实际样本 · 暂停断开')}</small>` : `<div class="watch-note-text">${noteHTML(record.note||t('还没有备注'))}</div>${button(t('编辑备注'),'watchNote','secondary')}${button(t('删除记录'),'delete','danger')}`}</div>${dots([['main','摘要'],['more','心率'],['note','备注']])}${back('返回手账','watchJournal')}`;
+  }
+  if (watchPage==='note') html=top(t('编辑备注'))+`<div class="watch-main watch-note-body">${asset('magic-journal')}<textarea id="watchNoteInput" placeholder="${t('写下备注…')}">${esc(current()?.note||'')}</textarea>${button(t('保存备注'),'saveWatchNote')}</div>${back('取消','watchDetail')}`;
+  if (watchPage==='settings') html=top(t('偏好设置'))+`<div class="watch-main"><div class="watch-preferences">${[['自动开始','automatic','play'],['静止提醒','autoStop','pause'],['记录心率','health','heart'],['声音','sound','sound'],['触感','haptics','haptics']].map(([label,key,icon])=>`<button class="preference-tile ${prefs[key] ? 'on' : ''}" data-action="pref:${key}" aria-label="${t(label)}" aria-pressed="${!!prefs[key]}">${icons[icon]}<span>${t(label)}</span></button>`).join('')}<button class="preference-tile" data-action="watchTrash">${icons.trash}<span>${t('回收站')}</span></button></div></div>${back()}`;
+  if (watchPage==='trash') html=top(t('回收站'))+`<div class="watch-records">${db.filter(record=>record.deleted).map(record=>`<div class="watch-record"><span>${formatDay(record.day)}</span>${button(t('恢复'),'restore:'+record.id,'ghost')}</div>`).join('')||`<div class="watch-empty"><span class="object-art">${icons.trash}</span><h2>${t('回收站为空')}</h2><p>${t('已删除记录可恢复')}</p></div>`}</div>${back('返回','watchSettings')}`;
+  $('watch').innerHTML=html;
+  const search=$('watchSearch');
+  if (search) search.addEventListener('input',()=>{watchQuery=search.value; watch(); $('watchSearch').focus();});
+}
+function render() { phone(); watch(); document.querySelectorAll('.scenario').forEach(element=>element.classList.toggle('chosen',element.dataset.action==='scenario:'+scenario)); }
+function noteHTML(text) { return String(text).split(/(https?:\/\/[^\s<>]+)/g).map(part=>{
+  if (!/^https?:\/\//.test(part)) return esc(part);
+  try { const url=new URL(part); if (url.username||url.password) return esc(part); return `<a href="${esc(url.href)}" target="_blank" rel="noopener noreferrer">${esc(part)}</a>`; } catch { return esc(part); }
+}).join('').replace(/\n/g,'<br>'); }
+function collectDraft(form) { return {note:form.elements.note.value}; }
+function saveDraft() { const form=$('editor'); if (form) try { localStorage.setItem(STORAGE+'.draft.'+(editBase||current()).id,JSON.stringify(collectDraft(form))); } catch {} }
+function bindForm() {
+  const search=$('search');
+  if (search) search.addEventListener('input',()=>{query=search.value; $('phone').classList.toggle('searching',!!query); $('searchResults').innerHTML=recordResults(scenario==='empty' ? [] : visible());});
+  const form=$('editor');
+  if (form) {
+    form.addEventListener('input',saveDraft);
+    form.addEventListener('submit',event=>{
+      event.preventDefault(); const draft=collectDraft(form);
+      try { const record=editBase||current(); if (!record) throw Error(t('记录已不存在。')); record.note=draft.note; record.links=[]; recordID=record.id; persist(); localStorage.removeItem(STORAGE+'.draft.'+record.id); detailPage='note'; phonePage='detail'; watchPage='detail'; watchSlide='note'; scenario='normal'; render(); toast(t('记录已保存。')); }
+      catch (error) { $('formError').textContent=error.message; }
+    });
+  }
+}
+document.addEventListener('pointerdown',event=>{
+  if (event.target.closest('.language-switch')) languagePointerFocus=document.activeElement;
+});
+document.addEventListener('click',event=>{
+  const element=event.target.closest('[data-action]'); if (!element) return;
+  event.preventDefault(); const action=element.dataset.action, [kind,value]=action.split(':');
+  if (kind==='language') { setPreviewLanguage(value); return; }
+  if (kind==='pref') { prefs[value]=!prefs[value]; render(); return; }
+  if (kind==='watchSize') { $('watch').parentElement.classList.toggle('small-watch',value==='small'); document.querySelectorAll('.watch-size-control button').forEach(button=>button.classList.toggle('selected',button.dataset.action==='watchSize:'+value)); return; }
+  if (kind==='watchSlide') { watchSlide=value; render(); return; }
+  if (kind==='watchRecord') { recordID=value; watchSlide='main'; watchPage='detail'; render(); return; }
+  if (kind==='detailPage') { detailPage=value; watchPage='detail'; watchSlide=value==='note' ? 'note' : 'main'; render(); return; }
+  if (kind==='scenario') { selectScenario(value); return; }
+  if (kind==='page') { phonePage=value; const mirror={home:'home',journal:'journal',settings:'settings',trash:'trash',detail:'detail'}; if (mirror[value]) { watchPage=mirror[value]; watchSlide='main'; } render(); return; }
+  if (kind==='record') { recordID=value; detailPage='summary'; phonePage='detail'; watchPage='detail'; watchSlide='main'; scenario='normal'; render(); return; }
+  if (kind==='day') { selected=value; render(); return; }
+  if (kind==='month') { month=+value; selected=dayKey(new Date(year,month,1)); yearView=false; render(); return; }
+  if (kind==='restore') { const record=db.find(record=>record.id===value); if (record) record.deleted=false; persist(); render(); toast(t('已恢复记录。')); return; }
+  switch (action) {
+    case 'start': session={seconds:0,phase:'recording',cycles:0,heartAvailable:prefs.health}; watchPage='session'; watchSlide='main'; phonePage='session'; scenario='normal'; break;
+    case 'pause': if (session) session.phase=session.phase==='recording' ? 'paused' : 'recording'; break;
+    case 'continueIdle': scenario='active'; break;
+    case 'finish':
+      watchPage='result'; watchSlide='main'; phonePage='result';
+      if (prefs.autoSave) { const record={id:crypto.randomUUID(),day:dayKey(today),time:'21:41',seconds:session?.seconds||0,cycles:session?.cycles||0,note:'',links:[],origin:'手动',heartAvailable:session?.heartAvailable!==false,deleted:false}; db.unshift(record); recordID=record.id; persist(); }
+      else scenario='pending';
+      break;
+    case 'retry': {
+      scenario='normal'; if (!session) session={seconds:208,cycles:126};
+      const record={id:crypto.randomUUID(),day:dayKey(today),time:'21:41',seconds:session.seconds,cycles:session.cycles,note:'',links:[],origin:'手动',heartAvailable:session?.heartAvailable!==false,deleted:false}; db.unshift(record); recordID=record.id; persist(); toast(t('保存完成。')); break;
+    }
+    case 'done': session=null; watchPage='home'; phonePage='journal'; scenario='normal'; selected=dayKey(today); break;
+    case 'discard': session=null; watchPage='home'; phonePage='home'; toast(t('本次记录已丢弃。')); break;
+    case 'watchHome': watchPage='home'; watchSlide='main'; break;
+    case 'watchDetail': watchPage='detail'; break;
+    case 'watchNote': watchPage='note'; break;
+    case 'watchTrash': watchPage='trash'; break;
+    case 'saveWatchNote': { const record=current(); if (record) { record.note=$('watchNoteInput').value; persist(); toast(t('备注已保存。')); } watchPage='detail'; watchSlide='note'; phonePage='detail'; detailPage='note'; break; }
+    case 'watchJournal': watchPage='journal'; watchSlide='main'; break;
+    case 'watchSettings': watchPage='settings'; watchSlide='main'; break;
+    case 'cancelSearch': query=''; break;
+    case 'yearMode': yearView=true; break;
+    case 'monthMode': yearView=false; break;
+    case 'today': year=2026; month=9; selected=dayKey(today); yearView=false; break;
+    case 'previous': case 'next': { const offset=action==='next' ? 1 : -1; if (yearView) year+=offset; else { const date=new Date(year,month+offset,1); year=date.getFullYear(); month=date.getMonth(); selected=dayKey(date); } break; }
+    case 'edit': case 'editResult': editBase=current(); phonePage='editor'; watchPage='note'; break;
+    case 'delete': if (confirm(t('移到回收站？可以在设置中恢复。'))) { const record=current(); if (record) record.deleted=true; persist(); phonePage='journal'; if (watchPage==='detail') watchPage='journal'; toast(t('已移到回收站。')); } break;
+  }
+  render();
+});
+document.addEventListener('change',event=>{if (event.target.dataset.pref) { prefs[event.target.dataset.pref]=event.target.checked; render(); }});
+$('reset').onclick=()=>{db=fixtures(); recordID=db[0].id; persist(); selectScenario('normal'); toast(t('演示记录已重置。'));};
+setInterval(()=>{if (session?.phase==='recording'&&watchPage==='session') { session.seconds++; session.cycles+=2; for (const id of ['watchTimer','phoneTimer']) if ($(id)) $(id).textContent=duration(session.seconds); }},1000);
+render();
+</script></body></html>
