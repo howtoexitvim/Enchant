@@ -1,2 +1,35 @@
+# macOS and editor files
 .DS_Store
 ._*
+*.swp
+*.swo
+*~
+
+# Swift / Xcode build products and local user state
+.build/
+build/
+DerivedData/
+*.xcarchive/
+*.xcresult/
+*.dSYM/
+*.ipa
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+
+# Script dependencies and caches
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local credentials; safe templates may be tracked
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Internal development notes
+/docs/
+/Log_*.md

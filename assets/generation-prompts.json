@@ -1,0 +1,29 @@
+{
+  "logo": "Use case: logo-brand. Asset type: square iOS/watchOS app icon for an app called Enchant. Create an original Minecraft-inspired voxel pixel-art icon: one chunky diagonal enchanted turquoise sword, compact angular silhouette, purple gem pommel and two tiny square magical sparks. Dark obsidian purple square background fills image edge to edge; no rounded corners (OS supplies mask). Crisp stair-stepped pixel edges, restrained 16-bit palette, hand-crafted premium game-inventory aesthetic, readable at 40 pixels. Generous safe margins. No text, no letters, no Minecraft logos, no copied game textures. Single icon only, no mockups or borders.",
+  "sword": "Use case: stylized-concept. Asset type: single transparent game-inventory sprite for Enchant watchOS app. Original Minecraft-inspired pixel art enchanted sword, pointing diagonally upward right, turquoise crystalline blade, dark teal stepped outline, violet gem and dark leather grip, restrained tiny square lavender enchantment sparks. Crisp uniform pixel grid, hard square stair-stepped edges, no blur, no smooth rendering, no shadow beyond object, no text, no UI, no background. Entire sword centered with generous transparent margins. Recognizable at watch screen size. Do not copy Minecraft item textures.",
+  "book": "Use case: stylized-concept. Asset type: single transparent game-inventory sprite for Enchant watchOS history screen. Original Minecraft-inspired pixel art closed magic journal, plum leather cover, small turquoise diamond-shaped square gem clasp, cream blocky pages, restrained gold corner fittings. Crisp uniform pixel grid and hard stair-stepped edges, front three-quarter inventory view, compact readable silhouette. No text, no runic letters, no blur, no smooth rendering, no background, no shadow beyond object. Centered with generous transparent margins. Do not copy Minecraft item textures.",
+  "plainSword": {
+    "operation": "imagegen edit",
+    "reference": "images/enchanted-sword.png",
+    "output": "images/plain-sword.png",
+    "prompt": "Edit the approved pixel sword into its unenchanted state. Preserve the original diagonal cyan blade, stepped silhouette, dark teal outline, handle, scale and transparent background. Remove all purple magical sparks, glints and enchantment aura. Keep a plain dark teal pommel. No text, no UI, no new background."
+  },
+  "enhancedSword": {
+    "operation": "built-in imagegen edit",
+    "reference": [
+      "images/enchanted-sword.png",
+      "images/plain-sword.png"
+    ],
+    "output": "images/enhanced-sword.png",
+    "prompt": "Improve only the enchantment. Preserve the exact upward-right cyan blade silhouette, stepped thickness and length, aqua crossguard, leather handle and violet gem pommel of the approved sword. Add lavender iridescent highlight bands across existing crystal facets, violet dark-edge accents and a few crisp squared motes. Keep the blade mostly turquoise and recognizably the same sword. Uniform pixel grid, transparent background; no blurry bloom, clouds, text or extra objects."
+  },
+  "enhancedLogo": {
+    "operation": "built-in imagegen edit",
+    "reference": [
+      "images/app-icon.png",
+      "images/enhanced-sword.png"
+    ],
+    "output": "images/enhanced-app-icon.png",
+    "prompt": "Preserve the approved opaque plum background, square edge-to-edge canvas and safe margins. Use the same enhanced cyan sword, diagonal shape, crossguard, leather handle, violet pommel and lavender blade sheen as the in-app sprite. Restrained crisp pixel motes, original brand identity; no text, frames, outer rounded corners or unrelated objects."
+  }
+}

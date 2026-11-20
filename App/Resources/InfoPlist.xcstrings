@@ -1,0 +1,57 @@
+{
+  "sourceLanguage": "zh-Hans",
+  "strings": {
+    "NSHealthShareUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "读取你授权的心率，在私人手账中回顾真实样本、时间和来源。"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Read heart rate with your permission to show real readings, times and sources in your private journal."
+          }
+        }
+      }
+    },
+    "NSHealthUpdateUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在本次活动期间运行 Watch 健康会话并采集心率。结束后保留本地手账，不向健康保存训练记录。"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Run a Watch health session to collect heart rate during this activity. Enchant keeps a local journal and does not save a workout to Health."
+          }
+        }
+      }
+    },
+    "NSMotionUsageDescription": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用腕部动作估算往复次数。开启自动开始后，仅在 Watch 前台待机时监测动作。"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use wrist motion to estimate repetitions. Auto-start monitors motion only while the Watch app is open."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

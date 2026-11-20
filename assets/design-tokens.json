@@ -1,0 +1,52 @@
+{
+  "colors": {
+    "background": "#110D1B",
+    "surface": "#211A30",
+    "raised": "#30243F",
+    "border": "#594568",
+    "text": "#F4EFDD",
+    "muted": "#B7A8C6",
+    "accent": "#57E0CD",
+    "magic": "#AE78F6",
+    "gold": "#F2CA6B",
+    "danger": "#EF8499"
+  },
+  "font": {
+    "title": "Fusion Pixel 12px Proportional zh_hans",
+    "latin": "Silkscreen",
+    "body": "Fusion Pixel 12px Proportional zh_hans",
+    "pixelChineseSizes": [
+      12,
+      14,
+      16,
+      18,
+      20,
+      24
+    ],
+    "timerSize": 28,
+    "minimumBodySize": 12,
+    "buttonSize": 18
+  },
+  "layout": {
+    "spacingUnit": 4,
+    "watchHorizontalPadding": 8,
+    "minimumTouchHeight": 44,
+    "primaryScreens": "fixed; horizontal detail pages; only variable content scrolls",
+    "watchCanvases": {
+      "40mm": [
+        162,
+        197
+      ],
+      "46mm": [
+        208,
+        248
+      ]
+    },
+    "phonePrimaryHeight": 48
+  },
+  "rendering": {
+    "icons": "16-unit grid; nearest-neighbor for raster",
+    "charts": "actual heart samples; line gaps at pauses or >30 seconds",
+    "illustrations": "decorative; metric labels remain text"
+  }
+}

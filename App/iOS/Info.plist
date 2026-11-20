@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>Enchant</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>读取你授权的心率，在私人手账中回顾真实样本、时间和来源。</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>在本次活动期间运行 Watch 健康会话并采集心率。结束后保留本地手账，不向健康保存训练记录。</string>
+	<key>NSMotionUsageDescription</key>
+	<string>用腕部动作估算往复次数。开启自动开始后，仅在 Watch 前台待机时监测动作。</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>FusionPixel-12px-Proportional-zh_hans.ttf</string>
+		<string>Silkscreen-Regular.ttf</string>
+		<string>Silkscreen-Bold.ttf</string>
+	</array>
+	<key>UILaunchScreen</key>
+	<dict/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+</dict>
+</plist>

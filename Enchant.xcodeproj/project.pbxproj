@@ -1,0 +1,905 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		091974CCF1071C2DA9CACA1B /* FusionPixel-12px-Proportional-zh_hans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 361115440991BE6F084E23C7 /* FusionPixel-12px-Proportional-zh_hans.ttf */; };
+		0B3FCED0EAC925E52167553C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0CD2B96E63BC856FDA47BA29 /* Localizable.xcstrings */; };
+		106597BA3644ACB9527D7903 /* ConnectivityServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EBAAC2280360FBE5C067E2 /* ConnectivityServiceTests.swift */; };
+		1875C1D64BF8FA4837DEA491 /* AppModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71638E09A274BA61E5E462B1 /* AppModelTests.swift */; };
+		1B4632778F701FCF5396F49C /* PixelIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591ADED89BD8F8D4682CB140 /* PixelIcon.swift */; };
+		1DE3B3E6A35634183CB78F68 /* SessionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC01804732FBC9F5BB75E132 /* SessionEngine.swift */; };
+		1DF9CD8740C018069582616F /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B191E882F92C04DC7FD109C0 /* InfoPlist.xcstrings */; };
+		1E190BDA100B70C9E929BFE5 /* RecordEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C5A142E61D675F1BED653B /* RecordEditor.swift */; };
+		2403F123D5BE1379263D2925 /* RecordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ED1B2A2C56F79E639A5AEC /* RecordStore.swift */; };
+		25080312F02477B5F26F5E57 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = B191E882F92C04DC7FD109C0 /* InfoPlist.xcstrings */; };
+		263F0F8274D4DEAFBAC4E268 /* HeartChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450647897BF3424C5C879F26 /* HeartChart.swift */; };
+		28627901301A1013DA73C818 /* MotionAcquisitionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3121F8E1F4D8A9BBE632405 /* MotionAcquisitionState.swift */; };
+		29DA900FE695B98EF0AAB406 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9052E06D87B1607134CF425 /* AppModel.swift */; };
+		2AE53BBCB35C7BF7ACE9DFA0 /* ConnectivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F52E1335611BB1CF6E5E220 /* ConnectivityService.swift */; };
+		2C2B7F8A9D0B448AB0D52471 /* FusionPixel-12px-Proportional-zh_hans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 361115440991BE6F084E23C7 /* FusionPixel-12px-Proportional-zh_hans.ttf */; };
+		3A0BE8561158CC8A80E52280 /* MotionSignal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90E91A33850E6598349B8D /* MotionSignal.swift */; };
+		3B7CBF7264E81F88ECFBAC91 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D89E5579A848B89F3A71FB /* MotionService.swift */; };
+		4390223688320CF1BDCB3983 /* enchant-finish.wav in Resources */ = {isa = PBXBuildFile; fileRef = 46B18856836456BC642CB52F /* enchant-finish.wav */; };
+		44A312A8975AAAB582DA724C /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0332F1BC20013879669E93DA /* Localization.swift */; };
+		46395A65C34A895C6C492366 /* enchant-start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8521543B0C9A0627667A8EC7 /* enchant-start.wav */; };
+		4A6CE4BD26F41D53CDF93F48 /* EnchantWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 31881DC14DDC7ADC7EA65930 /* EnchantWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4CC6CD5B3749A1CDDA687F89 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D5C40FF0502BF39C83663 /* Preferences.swift */; };
+		4ECA5537F1DE0DE1AE6C7529 /* FusionPixel-OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 12AEFA570C05268C0ECB6677 /* FusionPixel-OFL.txt */; };
+		535C4411A2CA6D47563B6AA9 /* enchant-finish.wav in Resources */ = {isa = PBXBuildFile; fileRef = 46B18856836456BC642CB52F /* enchant-finish.wav */; };
+		59AA8BB4F7ED50BF92879A43 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D7883D53C6CC10B869ABDF /* SettingsView.swift */; };
+		5B23C5CE9E51FC690E6CC876 /* Silkscreen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56EB9FEE32C7E856427EE425 /* Silkscreen-Bold.ttf */; };
+		5BD253858AFC4224B8825FE5 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B9855A09CDF79047C3258CE8 /* PrivacyInfo.xcprivacy */; };
+		5BE6E3DB0CF36E9AA7259A98 /* Silkscreen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56EB9FEE32C7E856427EE425 /* Silkscreen-Bold.ttf */; };
+		5D38719D32C9D98FE1C2D2B4 /* MotionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D89E5579A848B89F3A71FB /* MotionService.swift */; };
+		5D43ABDDB162B0B0552A4ECD /* Silkscreen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2D7B27E95E726734974A1D /* Silkscreen-Regular.ttf */; };
+		6C67196516556DEEA5F38DCF /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3833AA2E9CE3D456FC4CA /* HealthService.swift */; };
+		6D9BA9D05AF9510432CAA2C5 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0332F1BC20013879669E93DA /* Localization.swift */; };
+		71D8F155EE9AE33ABEEAFD5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F3B348DD4C983B8FE19E28 /* Foundation.framework */; };
+		79E4C322816666AB5A4569B8 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = B9855A09CDF79047C3258CE8 /* PrivacyInfo.xcprivacy */; };
+		7A093ED8438497032A68CBB1 /* SensorLifecycleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A915E7842B5286CCC5EF0A /* SensorLifecycleTests.swift */; };
+		7FC0E8A148BE134F82391DAE /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516F6760DFCF678D59B75B62 /* Models.swift */; };
+		842F62767DB4C72917C95361 /* MotionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549935563156B70BEA1485A5 /* MotionDetector.swift */; };
+		88D95C8F5F94CBE283F92628 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9052E06D87B1607134CF425 /* AppModel.swift */; };
+		89C9C204E8C07B0AC74C0BAF /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F55869C3BA45CE0ECD64BC /* JournalView.swift */; };
+		906EA31CE164E996EE14E021 /* FeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43E6864A599ED31090DD5FA /* FeedbackService.swift */; };
+		95DD608D9567F48254627C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A74E1609BEA265E69628977D /* Assets.xcassets */; };
+		9AB3CE54A252B16C637941FD /* SessionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC01804732FBC9F5BB75E132 /* SessionEngine.swift */; };
+		9C86969895E0F317D32C2800 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A74E1609BEA265E69628977D /* Assets.xcassets */; };
+		A3345B5F6BF2DD04D422560D /* FeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43E6864A599ED31090DD5FA /* FeedbackService.swift */; };
+		A5FD76BBB254FE9086E907E3 /* FeedbackPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CED78C3231A063E2370BE2 /* FeedbackPolicy.swift */; };
+		AB7B756597B84C72F268E57F /* Silkscreen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2D7B27E95E726734974A1D /* Silkscreen-Regular.ttf */; };
+		ACCF534B1DE1456DB54A8011 /* EnchantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F375E8F2E9C5185F07D2CEBF /* EnchantUITests.swift */; };
+		AD27B804A6521DA4194A718A /* EnchantWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC382D93F18EB79B8505690 /* EnchantWatchApp.swift */; };
+		ADC33DA4D456E0A944A6BB0C /* Silkscreen-OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 017E42179FEF761F3371FE6C /* Silkscreen-OFL.txt */; };
+		B76104731A4F4C8694C0D0F3 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076D5C40FF0502BF39C83663 /* Preferences.swift */; };
+		C0463AB6797B5B62B2653BA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A986B85A6F98A33067A1418E /* Foundation.framework */; };
+		C0C067075EE1CD4B690AC67E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2487C23703BA9BF229C0417A /* Theme.swift */; };
+		C28113007AFDD1E1F1D84244 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A986B85A6F98A33067A1418E /* Foundation.framework */; };
+		C2A9B0A42BCB58D6A1FB78F7 /* LocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC0EAB7FB031B884C0B8CA3 /* LocalizationTests.swift */; };
+		C3351329F5FD406024AD0905 /* RecordDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72F9E13CEEE816BE421AF4F /* RecordDetail.swift */; };
+		C6B8BE50C34D3A79BB724B10 /* FusionPixel-OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 12AEFA570C05268C0ECB6677 /* FusionPixel-OFL.txt */; };
+		C94C7BDBAF17A3460C5870F2 /* PixelIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591ADED89BD8F8D4682CB140 /* PixelIcon.swift */; };
+		CAC149A543075DC283C2299A /* HeartChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450647897BF3424C5C879F26 /* HeartChart.swift */; };
+		D21CB91CA8556FD984199B12 /* RecordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ED1B2A2C56F79E639A5AEC /* RecordStore.swift */; };
+		DA75451576C822C35D217CDB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2487C23703BA9BF229C0417A /* Theme.swift */; };
+		DEADD1EB698F2532979A0B9C /* MotionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549935563156B70BEA1485A5 /* MotionDetector.swift */; };
+		DF3D10226124FDFE64C563D1 /* EnchantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F15D488F7FE7D108F47A066 /* EnchantApp.swift */; };
+		E105A5F927C71973B9B3DF79 /* MotionSignal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90E91A33850E6598349B8D /* MotionSignal.swift */; };
+		E179ABBB69E8731050DF7E37 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0CD2B96E63BC856FDA47BA29 /* Localizable.xcstrings */; };
+		E242A0171FAF4EE9D208632C /* FeedbackPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CED78C3231A063E2370BE2 /* FeedbackPolicy.swift */; };
+		E292979C674ED37BD008B1AA /* Silkscreen-OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 017E42179FEF761F3371FE6C /* Silkscreen-OFL.txt */; };
+		EB655B52EBA20822ECB12C81 /* HealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F3833AA2E9CE3D456FC4CA /* HealthService.swift */; };
+		EB831FF79B5EE1724612F6B4 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516F6760DFCF678D59B75B62 /* Models.swift */; };
+		EC62D70CE877224C4AA8004A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A986B85A6F98A33067A1418E /* Foundation.framework */; };
+		ED756EFA498B6E75BEC158F2 /* ConnectivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F52E1335611BB1CF6E5E220 /* ConnectivityService.swift */; };
+		F260E4421ACE304C8BB11B7A /* enchant-start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8521543B0C9A0627667A8EC7 /* enchant-start.wav */; };
+		F50EEF7E57E78D37BA7787C0 /* MotionAcquisitionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3121F8E1F4D8A9BBE632405 /* MotionAcquisitionState.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		095C6CB654867DA6F478E2ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3D5B5EA14F52BE0E9CF0E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73099BED68B44D73E03B5B01;
+			remoteInfo = Enchant;
+		};
+		3BE0F1CBFC003CB926FA0874 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3D5B5EA14F52BE0E9CF0E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5FF986CA8584390B3A794051;
+			remoteInfo = EnchantWatch;
+		};
+		FEA2CC7E4E24B27D34628609 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD3D5B5EA14F52BE0E9CF0E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73099BED68B44D73E03B5B01;
+			remoteInfo = Enchant;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BDC5DAD896D2093469028104 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				4A6CE4BD26F41D53CDF93F48 /* EnchantWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		017E42179FEF761F3371FE6C /* Silkscreen-OFL.txt */ = {isa = PBXFileReference; includeInIndex = 1; name = "Silkscreen-OFL.txt"; path = "App/Resources/Silkscreen-OFL.txt"; sourceTree = "<group>"; };
+		02D7883D53C6CC10B869ABDF /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SettingsView.swift; path = App/iOS/SettingsView.swift; sourceTree = "<group>"; };
+		0332F1BC20013879669E93DA /* Localization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Localization.swift; path = App/Shared/Localization.swift; sourceTree = "<group>"; };
+		04F3833AA2E9CE3D456FC4CA /* HealthService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HealthService.swift; path = App/Shared/HealthService.swift; sourceTree = "<group>"; };
+		05F55869C3BA45CE0ECD64BC /* JournalView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JournalView.swift; path = App/iOS/JournalView.swift; sourceTree = "<group>"; };
+		076D5C40FF0502BF39C83663 /* Preferences.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Preferences.swift; path = App/Shared/Preferences.swift; sourceTree = "<group>"; };
+		0CD2B96E63BC856FDA47BA29 /* Localizable.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; name = Localizable.xcstrings; path = App/Resources/Localizable.xcstrings; sourceTree = "<group>"; };
+		12AEFA570C05268C0ECB6677 /* FusionPixel-OFL.txt */ = {isa = PBXFileReference; includeInIndex = 1; name = "FusionPixel-OFL.txt"; path = "App/Resources/FusionPixel-OFL.txt"; sourceTree = "<group>"; };
+		1F52E1335611BB1CF6E5E220 /* ConnectivityService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConnectivityService.swift; path = App/Shared/ConnectivityService.swift; sourceTree = "<group>"; };
+		2487C23703BA9BF229C0417A /* Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = App/Shared/Theme.swift; sourceTree = "<group>"; };
+		2F2D7B27E95E726734974A1D /* Silkscreen-Regular.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Silkscreen-Regular.ttf"; path = "App/Resources/Silkscreen-Regular.ttf"; sourceTree = "<group>"; };
+		30CEA1365C990E0F245F60A2 /* Enchant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Enchant.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		31881DC14DDC7ADC7EA65930 /* EnchantWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnchantWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		361115440991BE6F084E23C7 /* FusionPixel-12px-Proportional-zh_hans.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "FusionPixel-12px-Proportional-zh_hans.ttf"; path = "App/Resources/FusionPixel-12px-Proportional-zh_hans.ttf"; sourceTree = "<group>"; };
+		3AC0EAB7FB031B884C0B8CA3 /* LocalizationTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocalizationTests.swift; path = App/Tests/LocalizationTests.swift; sourceTree = "<group>"; };
+		4174F970BEF202AEFA734A02 /* EnchantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnchantUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43F3B348DD4C983B8FE19E28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS11.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		450647897BF3424C5C879F26 /* HeartChart.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HeartChart.swift; path = App/Shared/HeartChart.swift; sourceTree = "<group>"; };
+		46B18856836456BC642CB52F /* enchant-finish.wav */ = {isa = PBXFileReference; includeInIndex = 1; name = "enchant-finish.wav"; path = "App/Resources/enchant-finish.wav"; sourceTree = "<group>"; };
+		516F6760DFCF678D59B75B62 /* Models.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Models.swift; path = Sources/EnchantCore/Models.swift; sourceTree = "<group>"; };
+		549935563156B70BEA1485A5 /* MotionDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MotionDetector.swift; path = Sources/EnchantCore/MotionDetector.swift; sourceTree = "<group>"; };
+		56EB9FEE32C7E856427EE425 /* Silkscreen-Bold.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = "Silkscreen-Bold.ttf"; path = "App/Resources/Silkscreen-Bold.ttf"; sourceTree = "<group>"; };
+		591ADED89BD8F8D4682CB140 /* PixelIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PixelIcon.swift; path = App/Shared/PixelIcon.swift; sourceTree = "<group>"; };
+		66CED78C3231A063E2370BE2 /* FeedbackPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FeedbackPolicy.swift; path = Sources/EnchantCore/FeedbackPolicy.swift; sourceTree = "<group>"; };
+		67A915E7842B5286CCC5EF0A /* SensorLifecycleTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SensorLifecycleTests.swift; path = App/Tests/SensorLifecycleTests.swift; sourceTree = "<group>"; };
+		71638E09A274BA61E5E462B1 /* AppModelTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppModelTests.swift; path = App/Tests/AppModelTests.swift; sourceTree = "<group>"; };
+		8521543B0C9A0627667A8EC7 /* enchant-start.wav */ = {isa = PBXFileReference; includeInIndex = 1; name = "enchant-start.wav"; path = "App/Resources/enchant-start.wav"; sourceTree = "<group>"; };
+		8F15D488F7FE7D108F47A066 /* EnchantApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EnchantApp.swift; path = App/iOS/EnchantApp.swift; sourceTree = "<group>"; };
+		9CC382D93F18EB79B8505690 /* EnchantWatchApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EnchantWatchApp.swift; path = App/Watch/EnchantWatchApp.swift; sourceTree = "<group>"; };
+		A3121F8E1F4D8A9BBE632405 /* MotionAcquisitionState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MotionAcquisitionState.swift; path = Sources/EnchantCore/MotionAcquisitionState.swift; sourceTree = "<group>"; };
+		A74E1609BEA265E69628977D /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = App/Resources/Assets.xcassets; sourceTree = "<group>"; };
+		A986B85A6F98A33067A1418E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A9EF6913139F1BE79506F39B /* EnchantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnchantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B191E882F92C04DC7FD109C0 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; includeInIndex = 1; name = InfoPlist.xcstrings; path = App/Resources/InfoPlist.xcstrings; sourceTree = "<group>"; };
+		B9855A09CDF79047C3258CE8 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = App/Resources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		BC90E91A33850E6598349B8D /* MotionSignal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MotionSignal.swift; path = Sources/EnchantCore/MotionSignal.swift; sourceTree = "<group>"; };
+		C2EBAAC2280360FBE5C067E2 /* ConnectivityServiceTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConnectivityServiceTests.swift; path = App/Tests/ConnectivityServiceTests.swift; sourceTree = "<group>"; };
+		C8D89E5579A848B89F3A71FB /* MotionService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MotionService.swift; path = App/Shared/MotionService.swift; sourceTree = "<group>"; };
+		C9052E06D87B1607134CF425 /* AppModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppModel.swift; path = App/Shared/AppModel.swift; sourceTree = "<group>"; };
+		D72F9E13CEEE816BE421AF4F /* RecordDetail.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecordDetail.swift; path = App/iOS/RecordDetail.swift; sourceTree = "<group>"; };
+		F2C5A142E61D675F1BED653B /* RecordEditor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecordEditor.swift; path = App/iOS/RecordEditor.swift; sourceTree = "<group>"; };
+		F375E8F2E9C5185F07D2CEBF /* EnchantUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EnchantUITests.swift; path = App/UITests/EnchantUITests.swift; sourceTree = "<group>"; };
+		F43E6864A599ED31090DD5FA /* FeedbackService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FeedbackService.swift; path = App/Shared/FeedbackService.swift; sourceTree = "<group>"; };
+		F4ED1B2A2C56F79E639A5AEC /* RecordStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecordStore.swift; path = Sources/EnchantCore/RecordStore.swift; sourceTree = "<group>"; };
+		FC01804732FBC9F5BB75E132 /* SessionEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionEngine.swift; path = Sources/EnchantCore/SessionEngine.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0B0AACE3B2A9B751C604CF66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71D8F155EE9AE33ABEEAFD5D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EF8EC7C3A0276B46C4E03AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0463AB6797B5B62B2653BA8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6F75BB2CB7C0D3C65E8D968D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC62D70CE877224C4AA8004A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA8A604E4E9FFF4148C9147C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C28113007AFDD1E1F1D84244 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		649F850BCF66BC1CB48250E7 /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				43F3B348DD4C983B8FE19E28 /* Foundation.framework */,
+			);
+			name = watchOS;
+			sourceTree = "<group>";
+		};
+		7DAB141C23EBB225E60BBC48 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30CEA1365C990E0F245F60A2 /* Enchant.app */,
+				31881DC14DDC7ADC7EA65930 /* EnchantWatch.app */,
+				A9EF6913139F1BE79506F39B /* EnchantTests.xctest */,
+				4174F970BEF202AEFA734A02 /* EnchantUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C80C01DEBBDF382800F83A0 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A986B85A6F98A33067A1418E /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		B0A6C7769519198027E8565B = {
+			isa = PBXGroup;
+			children = (
+				7DAB141C23EBB225E60BBC48 /* Products */,
+				C498A0EB8A81A96A95895EE1 /* Frameworks */,
+				F4ED1B2A2C56F79E639A5AEC /* RecordStore.swift */,
+				516F6760DFCF678D59B75B62 /* Models.swift */,
+				549935563156B70BEA1485A5 /* MotionDetector.swift */,
+				FC01804732FBC9F5BB75E132 /* SessionEngine.swift */,
+				0332F1BC20013879669E93DA /* Localization.swift */,
+				1F52E1335611BB1CF6E5E220 /* ConnectivityService.swift */,
+				591ADED89BD8F8D4682CB140 /* PixelIcon.swift */,
+				076D5C40FF0502BF39C83663 /* Preferences.swift */,
+				C9052E06D87B1607134CF425 /* AppModel.swift */,
+				04F3833AA2E9CE3D456FC4CA /* HealthService.swift */,
+				450647897BF3424C5C879F26 /* HeartChart.swift */,
+				F43E6864A599ED31090DD5FA /* FeedbackService.swift */,
+				2487C23703BA9BF229C0417A /* Theme.swift */,
+				C8D89E5579A848B89F3A71FB /* MotionService.swift */,
+				02D7883D53C6CC10B869ABDF /* SettingsView.swift */,
+				05F55869C3BA45CE0ECD64BC /* JournalView.swift */,
+				D72F9E13CEEE816BE421AF4F /* RecordDetail.swift */,
+				F2C5A142E61D675F1BED653B /* RecordEditor.swift */,
+				8F15D488F7FE7D108F47A066 /* EnchantApp.swift */,
+				9CC382D93F18EB79B8505690 /* EnchantWatchApp.swift */,
+				F375E8F2E9C5185F07D2CEBF /* EnchantUITests.swift */,
+				A74E1609BEA265E69628977D /* Assets.xcassets */,
+				0CD2B96E63BC856FDA47BA29 /* Localizable.xcstrings */,
+				46B18856836456BC642CB52F /* enchant-finish.wav */,
+				017E42179FEF761F3371FE6C /* Silkscreen-OFL.txt */,
+				361115440991BE6F084E23C7 /* FusionPixel-12px-Proportional-zh_hans.ttf */,
+				12AEFA570C05268C0ECB6677 /* FusionPixel-OFL.txt */,
+				2F2D7B27E95E726734974A1D /* Silkscreen-Regular.ttf */,
+				56EB9FEE32C7E856427EE425 /* Silkscreen-Bold.ttf */,
+				B191E882F92C04DC7FD109C0 /* InfoPlist.xcstrings */,
+				8521543B0C9A0627667A8EC7 /* enchant-start.wav */,
+				C2EBAAC2280360FBE5C067E2 /* ConnectivityServiceTests.swift */,
+				71638E09A274BA61E5E462B1 /* AppModelTests.swift */,
+				3AC0EAB7FB031B884C0B8CA3 /* LocalizationTests.swift */,
+				B9855A09CDF79047C3258CE8 /* PrivacyInfo.xcprivacy */,
+				66CED78C3231A063E2370BE2 /* FeedbackPolicy.swift */,
+				BC90E91A33850E6598349B8D /* MotionSignal.swift */,
+				A3121F8E1F4D8A9BBE632405 /* MotionAcquisitionState.swift */,
+				67A915E7842B5286CCC5EF0A /* SensorLifecycleTests.swift */,
+			);
+			sourceTree = "<group>";
+		};
+		C498A0EB8A81A96A95895EE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C80C01DEBBDF382800F83A0 /* iOS */,
+				649F850BCF66BC1CB48250E7 /* watchOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		47DBB426C2544969D6888C0C /* EnchantUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93069A4ACD7138A137A52987 /* Build configuration list for PBXNativeTarget "EnchantUITests" */;
+			buildPhases = (
+				AB84B7F7EF24482EF71B8312 /* Sources */,
+				5EF8EC7C3A0276B46C4E03AA /* Frameworks */,
+				DFB1A9B6A628E9D8CE6FC761 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA65067F08C04E5BC2FBAE49 /* PBXTargetDependency */,
+			);
+			name = EnchantUITests;
+			productName = EnchantUITests;
+			productReference = 4174F970BEF202AEFA734A02 /* EnchantUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		5FF986CA8584390B3A794051 /* EnchantWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0FBA14A643E38F3AD053850 /* Build configuration list for PBXNativeTarget "EnchantWatch" */;
+			buildPhases = (
+				444034D5F326EE80A8707ED9 /* Sources */,
+				0B0AACE3B2A9B751C604CF66 /* Frameworks */,
+				9C71B26651900AE3014E7666 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EnchantWatch;
+			productName = EnchantWatch;
+			productReference = 31881DC14DDC7ADC7EA65930 /* EnchantWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		643F6B85D4D7B1ABB93A1638 /* EnchantTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B9A48657EA1123198947930 /* Build configuration list for PBXNativeTarget "EnchantTests" */;
+			buildPhases = (
+				0F7381A8E7C8BF1145A39655 /* Sources */,
+				6F75BB2CB7C0D3C65E8D968D /* Frameworks */,
+				5069CF7BF01325164FE3483B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				86175C2B161BB000D549280B /* PBXTargetDependency */,
+			);
+			name = EnchantTests;
+			productName = EnchantTests;
+			productReference = A9EF6913139F1BE79506F39B /* EnchantTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		73099BED68B44D73E03B5B01 /* Enchant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85A5721E599DBA9572762E84 /* Build configuration list for PBXNativeTarget "Enchant" */;
+			buildPhases = (
+				0B4F19C3DF2447DE8E57B47D /* Sources */,
+				AA8A604E4E9FFF4148C9147C /* Frameworks */,
+				348FC3E892670D0FEC60EAFD /* Resources */,
+				BDC5DAD896D2093469028104 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5CB3528D35340562863A927 /* PBXTargetDependency */,
+			);
+			name = Enchant;
+			productName = Enchant;
+			productReference = 30CEA1365C990E0F245F60A2 /* Enchant.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BD3D5B5EA14F52BE0E9CF0E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 2630;
+			};
+			buildConfigurationList = 50F44A4FE3FBB7D74DCFDDC8 /* Build configuration list for PBXProject "Enchant" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = "zh-Hans";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				"zh-Hans",
+				en,
+			);
+			mainGroup = B0A6C7769519198027E8565B;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 7DAB141C23EBB225E60BBC48 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				73099BED68B44D73E03B5B01 /* Enchant */,
+				5FF986CA8584390B3A794051 /* EnchantWatch */,
+				643F6B85D4D7B1ABB93A1638 /* EnchantTests */,
+				47DBB426C2544969D6888C0C /* EnchantUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		348FC3E892670D0FEC60EAFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C86969895E0F317D32C2800 /* Assets.xcassets in Resources */,
+				0B3FCED0EAC925E52167553C /* Localizable.xcstrings in Resources */,
+				535C4411A2CA6D47563B6AA9 /* enchant-finish.wav in Resources */,
+				ADC33DA4D456E0A944A6BB0C /* Silkscreen-OFL.txt in Resources */,
+				2C2B7F8A9D0B448AB0D52471 /* FusionPixel-12px-Proportional-zh_hans.ttf in Resources */,
+				C6B8BE50C34D3A79BB724B10 /* FusionPixel-OFL.txt in Resources */,
+				5D43ABDDB162B0B0552A4ECD /* Silkscreen-Regular.ttf in Resources */,
+				5B23C5CE9E51FC690E6CC876 /* Silkscreen-Bold.ttf in Resources */,
+				25080312F02477B5F26F5E57 /* InfoPlist.xcstrings in Resources */,
+				F260E4421ACE304C8BB11B7A /* enchant-start.wav in Resources */,
+				79E4C322816666AB5A4569B8 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5069CF7BF01325164FE3483B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C71B26651900AE3014E7666 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95DD608D9567F48254627C02 /* Assets.xcassets in Resources */,
+				E179ABBB69E8731050DF7E37 /* Localizable.xcstrings in Resources */,
+				4390223688320CF1BDCB3983 /* enchant-finish.wav in Resources */,
+				E292979C674ED37BD008B1AA /* Silkscreen-OFL.txt in Resources */,
+				091974CCF1071C2DA9CACA1B /* FusionPixel-12px-Proportional-zh_hans.ttf in Resources */,
+				4ECA5537F1DE0DE1AE6C7529 /* FusionPixel-OFL.txt in Resources */,
+				AB7B756597B84C72F268E57F /* Silkscreen-Regular.ttf in Resources */,
+				5BE6E3DB0CF36E9AA7259A98 /* Silkscreen-Bold.ttf in Resources */,
+				1DF9CD8740C018069582616F /* InfoPlist.xcstrings in Resources */,
+				46395A65C34A895C6C492366 /* enchant-start.wav in Resources */,
+				5BD253858AFC4224B8825FE5 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFB1A9B6A628E9D8CE6FC761 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B4F19C3DF2447DE8E57B47D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D21CB91CA8556FD984199B12 /* RecordStore.swift in Sources */,
+				7FC0E8A148BE134F82391DAE /* Models.swift in Sources */,
+				DEADD1EB698F2532979A0B9C /* MotionDetector.swift in Sources */,
+				9AB3CE54A252B16C637941FD /* SessionEngine.swift in Sources */,
+				44A312A8975AAAB582DA724C /* Localization.swift in Sources */,
+				ED756EFA498B6E75BEC158F2 /* ConnectivityService.swift in Sources */,
+				C94C7BDBAF17A3460C5870F2 /* PixelIcon.swift in Sources */,
+				4CC6CD5B3749A1CDDA687F89 /* Preferences.swift in Sources */,
+				88D95C8F5F94CBE283F92628 /* AppModel.swift in Sources */,
+				6C67196516556DEEA5F38DCF /* HealthService.swift in Sources */,
+				263F0F8274D4DEAFBAC4E268 /* HeartChart.swift in Sources */,
+				906EA31CE164E996EE14E021 /* FeedbackService.swift in Sources */,
+				C0C067075EE1CD4B690AC67E /* Theme.swift in Sources */,
+				3B7CBF7264E81F88ECFBAC91 /* MotionService.swift in Sources */,
+				59AA8BB4F7ED50BF92879A43 /* SettingsView.swift in Sources */,
+				89C9C204E8C07B0AC74C0BAF /* JournalView.swift in Sources */,
+				C3351329F5FD406024AD0905 /* RecordDetail.swift in Sources */,
+				1E190BDA100B70C9E929BFE5 /* RecordEditor.swift in Sources */,
+				DF3D10226124FDFE64C563D1 /* EnchantApp.swift in Sources */,
+				A5FD76BBB254FE9086E907E3 /* FeedbackPolicy.swift in Sources */,
+				E105A5F927C71973B9B3DF79 /* MotionSignal.swift in Sources */,
+				F50EEF7E57E78D37BA7787C0 /* MotionAcquisitionState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0F7381A8E7C8BF1145A39655 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				106597BA3644ACB9527D7903 /* ConnectivityServiceTests.swift in Sources */,
+				1875C1D64BF8FA4837DEA491 /* AppModelTests.swift in Sources */,
+				C2A9B0A42BCB58D6A1FB78F7 /* LocalizationTests.swift in Sources */,
+				7A093ED8438497032A68CBB1 /* SensorLifecycleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		444034D5F326EE80A8707ED9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2403F123D5BE1379263D2925 /* RecordStore.swift in Sources */,
+				EB831FF79B5EE1724612F6B4 /* Models.swift in Sources */,
+				842F62767DB4C72917C95361 /* MotionDetector.swift in Sources */,
+				1DE3B3E6A35634183CB78F68 /* SessionEngine.swift in Sources */,
+				6D9BA9D05AF9510432CAA2C5 /* Localization.swift in Sources */,
+				2AE53BBCB35C7BF7ACE9DFA0 /* ConnectivityService.swift in Sources */,
+				1B4632778F701FCF5396F49C /* PixelIcon.swift in Sources */,
+				B76104731A4F4C8694C0D0F3 /* Preferences.swift in Sources */,
+				29DA900FE695B98EF0AAB406 /* AppModel.swift in Sources */,
+				EB655B52EBA20822ECB12C81 /* HealthService.swift in Sources */,
+				CAC149A543075DC283C2299A /* HeartChart.swift in Sources */,
+				A3345B5F6BF2DD04D422560D /* FeedbackService.swift in Sources */,
+				DA75451576C822C35D217CDB /* Theme.swift in Sources */,
+				5D38719D32C9D98FE1C2D2B4 /* MotionService.swift in Sources */,
+				AD27B804A6521DA4194A718A /* EnchantWatchApp.swift in Sources */,
+				E242A0171FAF4EE9D208632C /* FeedbackPolicy.swift in Sources */,
+				3A0BE8561158CC8A80E52280 /* MotionSignal.swift in Sources */,
+				28627901301A1013DA73C818 /* MotionAcquisitionState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB84B7F7EF24482EF71B8312 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACCF534B1DE1456DB54A8011 /* EnchantUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		86175C2B161BB000D549280B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Enchant;
+			target = 73099BED68B44D73E03B5B01 /* Enchant */;
+			targetProxy = FEA2CC7E4E24B27D34628609 /* PBXContainerItemProxy */;
+		};
+		D5CB3528D35340562863A927 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EnchantWatch;
+			target = 5FF986CA8584390B3A794051 /* EnchantWatch */;
+			targetProxy = 3BE0F1CBFC003CB926FA0874 /* PBXContainerItemProxy */;
+		};
+		DA65067F08C04E5BC2FBAE49 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Enchant;
+			target = 73099BED68B44D73E03B5B01 /* Enchant */;
+			targetProxy = 095C6CB654867DA6F478E2ED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		06A0F55B9A901A94A1EA3057 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shuqi.enchant.tests;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Enchant.app/Enchant";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5B87EFDCA55AE4F7D612E97E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shuqi.enchant.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Enchant;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6B100B2055017C408D14C600 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = App/iOS/Enchant.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shuqi.enchant;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		8566DEFBC70F3B222255AA57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shuqi.enchant.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Enchant;
+			};
+			name = Debug;
+		};
+		85F1E88FD76957BB39769ACC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		8903D28857F0EDEFCAE03951 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = App/iOS/Enchant.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shuqi.enchant;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9EE9D8A0152C5072B0A79114 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shuqi.enchant.tests;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Enchant.app/Enchant";
+			};
+			name = Debug;
+		};
+		A82A5445DC1D2D18F5C47454 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = App/Watch/Enchant.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/Watch/Info.plist;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shuqi.enchant.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		CA37FFC39C97AF4AB36E655F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = App/Watch/Enchant.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/Watch/Info.plist;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shuqi.enchant.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		D14E9CF3676E0467A9C69BF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50F44A4FE3FBB7D74DCFDDC8 /* Build configuration list for PBXProject "Enchant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D14E9CF3676E0467A9C69BF1 /* Debug */,
+				85F1E88FD76957BB39769ACC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85A5721E599DBA9572762E84 /* Build configuration list for PBXNativeTarget "Enchant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8903D28857F0EDEFCAE03951 /* Release */,
+				6B100B2055017C408D14C600 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93069A4ACD7138A137A52987 /* Build configuration list for PBXNativeTarget "EnchantUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B87EFDCA55AE4F7D612E97E /* Release */,
+				8566DEFBC70F3B222255AA57 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B9A48657EA1123198947930 /* Build configuration list for PBXNativeTarget "EnchantTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06A0F55B9A901A94A1EA3057 /* Release */,
+				9EE9D8A0152C5072B0A79114 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0FBA14A643E38F3AD053850 /* Build configuration list for PBXNativeTarget "EnchantWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA37FFC39C97AF4AB36E655F /* Release */,
+				A82A5445DC1D2D18F5C47454 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BD3D5B5EA14F52BE0E9CF0E8 /* Project object */;
+}
